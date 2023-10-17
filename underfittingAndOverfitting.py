@@ -27,3 +27,9 @@ iowa_model.fit(train_X, train_y)
 #make validation for the predictions and calculate the MAE
 val_predictions = iowa_model.predict(val_X)
 val_mae = mean_absolute_error(val_y, val_predictions)
+
+# Set up code checking
+from learntools.core import binder
+binder.bind(globals())
+from learntools.machine_learning.ex5 import *
+print("\nSetup complete")
