@@ -55,5 +55,6 @@ melbourne_model.fit(train_X, train_y)
 
 #get the predicticted prices
 valuesOfThePredictions = melbourne_model.predict(val_X)
-print(mean_absolute_error((val_y, valuesOfThePredictions)))
 
+#print the MAE value given the predicted values and the validation set
+print(mean_absolute_error((val_y, valuesOfThePredictions)))
