@@ -28,8 +28,14 @@ iowa_model.fit(train_X, train_y)
 val_predictions = iowa_model.predict(val_X)
 val_mae = mean_absolute_error(val_y, val_predictions)
 
-# Set up code checking
-from learntools.core import binder
-binder.bind(globals())
-from learntools.machine_learning.ex5 import *
-print("\nSetup complete")
+#function to calculate and get the MAE
+def getMae(input_max_leaf_nodes, train_X, val_X, train_y, val_y):
+    model = DecisionTreeRegressor(max_leaf_nodes=input_max_leaf_nodes, random_state=0)
+    model.fit(train_X, train_y)
+    preds_val = model.predict(val_X)
+    mae = mean_absolute_error(val_y, preds_val)
+
+    return(mae) #return the Mean Absolute Value for the given max_leaf_nodes
+
+#compare different tree sizes
+candidate_max_leaf_nodes = [5, 25, 50, 100, 250, 500]
