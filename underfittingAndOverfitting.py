@@ -41,3 +41,7 @@ def getMae(input_max_leaf_nodes, train_X, val_X, train_y, val_y):
 candidate_max_leaf_nodes = [5, 25, 50, 100, 250, 500]
 
 #loop to find the ideal tree size from candidate_max_leaf_nodes
+mae = []
+for i in candidate_max_leaf_nodes:
+    candidate_mae = getMae(i, train_X, val_X, train_y, val_y)
+    mae.attach(candidate_mae)
