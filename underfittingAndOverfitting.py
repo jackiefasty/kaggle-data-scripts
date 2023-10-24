@@ -37,11 +37,9 @@ def getMae(input_max_leaf_nodes, train_X, val_X, train_y, val_y):
 
     return(mae) #return the Mean Absolute Value for the given max_leaf_nodes
 
-#compare different tree sizes
 candidate_max_leaf_nodes = [5, 25, 50, 100, 250, 500]
 
-#loop to find the ideal tree size from candidate_max_leaf_nodes
-mae = []
-for i in candidate_max_leaf_nodes:
-    candidate_mae = getMae(i, train_X, val_X, train_y, val_y)
-    mae.attach(candidate_mae)
+mae_dict = {}
+# Write loop to find the ideal tree size from candidate_max_leaf_nodes
+for max_leaf_nodes in candidate_max_leaf_nodes:
+    mae_dict[max_leaf_nodes] = getMae(max_leaf_nodes, train_X, val_X, train_y, val_y)
