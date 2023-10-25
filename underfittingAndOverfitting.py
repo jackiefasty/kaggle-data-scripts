@@ -26,7 +26,8 @@ iowa_model.fit(train_X, train_y)
 
 #make validation for the predictions and calculate the MAE
 val_predictions = iowa_model.predict(val_X)
-val_mae = mean_absolute_error(val_y, val_predictions)
+val_mae = mean_absolute_error(val_predictions, val_y)
+print("Validation MAE: {:,.0f}".format(val_mae))
 
 #function to calculate and get the MAE
 def getMae(input_max_leaf_nodes, train_X, val_X, train_y, val_y):
@@ -43,3 +44,13 @@ mae_dict = {}
 # Write loop to find the ideal tree size from candidate_max_leaf_nodes
 for max_leaf_nodes in candidate_max_leaf_nodes:
     mae_dict[max_leaf_nodes] = getMae(max_leaf_nodes, train_X, val_X, train_y, val_y)
+    print(mae_dict[max_leaf_nodes])
+
+# Store the best value of max_leaf_nodes (it will be either 5, 25, 50, 100, 250 or 500)
+best_tree_size = min(mae_dict, key=mae_dict.get)
+
+# Fill in argument to make optimal size and uncomment
+final_model = DecisionTreeRegressor(max_leaf_nodes=best_tree_size,random_state=42)
+
+# fit the final model and uncomment the next two lines
+final_model.fit(X, y)
