@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
@@ -29,4 +30,17 @@ iowa_model.fit(train_X, train_y)
 #predict with all validation observations
 val_predictions = iowa_model.predict(val_X)
 
-print(val_X)
+print(val_predictions)
+
+#calculate the MAE, Mean Absolute Error
+mae_val = mean_absolute_error(val_predictions, val_y) #column x column
+
+print("Validation MAE when not specifying the maximum number of leaf nodes: {:, .0f}", format(mae_val))
+
+#using the best value for the maximum number of leaf nodes
+iowa_model = DecisionTreeRegressor(max_leaf_nodes = 100, random_state=1)
+iowa_model.fit(train_X, train_y)
+print("val_X: ", val_X); print(np.size())
+val_preds = iowa_model.predict(val_X)
+max_mae_val = mean_absolute_error(val_preds, val_y)
+print("Validation MAE for best value of max_leaf_nodes: {:,.0f}".format(max_mae_val))
