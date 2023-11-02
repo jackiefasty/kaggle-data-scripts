@@ -44,3 +44,9 @@ print("val_X: ", val_X); print(np.size())
 val_preds = iowa_model.predict(val_X)
 max_mae_val = mean_absolute_error(val_preds, val_y)
 print("Validation MAE for best value of max_leaf_nodes: {:,.0f}".format(max_mae_val))
+
+#Now, use a RF Random Forest
+from sklearn.ensemble import RandomForestRegressor
+
+#define the model
+rf_model = RandomForestRegressor(random_state=1)
