@@ -41,3 +41,14 @@ print("Make predictions for the following 5 houses of the dataset: ")
 print(X.head())
 print("The predictions are: ")
 print(melbourne_model.predict(X.head()))
+
+#calculate the mean absolute error
+from sklearn.metrics import mean_absolute_error
+from sklearn.ensemble import RandomForestRegressor
+
+#define the model. Specify a number for random_state to ensure same results each run
+rf_model = RandomForestRegressor(random_state=1)
+
+#define the model
+#rf_model.fit(train_X, train_y)
+
