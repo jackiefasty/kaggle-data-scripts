@@ -46,7 +46,18 @@ max_mae_val = mean_absolute_error(val_preds, val_y)
 print("Validation MAE for best value of max_leaf_nodes: {:,.0f}".format(max_mae_val))
 
 #Now, use a RF Random Forest
-from sklearn.ensemble import RandomForestRegressor
+#RF model validation
+from sklearn.metrics import RandomForestRegressor
 
-#define the model
+#define the model by setting the random_state at 1
 rf_model = RandomForestRegressor(random_state=1)
+
+#fit the model
+rf_model.fit(train_X, train_y)
+
+#calculate the MAE of the RF model on the validation data
+rf_val_mae = mean_absolute_error(val_predictions, val_y)
+
+print("Validation MAE for RF model: {:,.0f}".format(rf_val_mae))
+
+
