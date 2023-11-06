@@ -56,7 +56,8 @@ rf_model = RandomForestRegressor(random_state=1)
 rf_model.fit(train_X, train_y)
 
 #calculate the MAE of the RF model on the validation data
-rf_val_mae = mean_absolute_error(val_predictions, val_y)
+rf_val_preds = rf_model.predict(val_X)
+rf_val_mae = mean_absolute_error(rf_val_preds, val_y)
 
 print("Validation MAE for RF model: {:,.0f}".format(rf_val_mae))
 
