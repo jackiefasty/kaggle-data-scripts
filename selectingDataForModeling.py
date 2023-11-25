@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.tree import DecisionTreeRegressor
 
 # Read the data
 melbourne_file_path = 'datasets/melb_data.csv'
@@ -28,7 +29,6 @@ X.describe()
 X.head()
 
 #build the ML model
-from sklearn.tree import DecisionTreeRegressor
 
 #define the model and specify a number for random_state to ensure same results each run
 melbourne_model = DecisionTreeRegressor(random_state=1)
