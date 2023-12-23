@@ -47,3 +47,16 @@ rf_model_on_all_data = RandomForestRegressor()
 
 # Fit the rf_model_on_full_data on all data from the training data
 rf_model_on_all_data.fit(train_X, train_y)
+
+# Set the path to the file to be used for predictions
+test_data_path = '../datasets/test.csv'
+
+# Read test data file using pandas
+test_data = pd.read_csv(test_data_path)
+
+# Create test_X which comes from test_data but includes only
+# columns to be used by the list of columns stored in 'features'
+text_X = test_data[features]
+
+# Make predictions to be submitted
+test_preds = rf_model_on_all_data.predict(val_X)
