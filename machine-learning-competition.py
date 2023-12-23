@@ -60,3 +60,8 @@ text_X = test_data[features]
 
 # Make predictions to be submitted
 test_preds = rf_model_on_all_data.predict(val_X)
+
+# Run the code to save predictions in the format used for competition scoring
+output = pd.DataFrame({'Id': test_data.Id,
+                       'SalePrice': test_preds})
+output.to_csv('submission.csv', index=False)
