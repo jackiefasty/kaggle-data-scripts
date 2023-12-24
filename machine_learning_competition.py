@@ -58,6 +58,8 @@ test_data = pd.read_csv(test_data_path)
 # columns to be used by the list of columns stored in 'features'
 test_X = test_data[features]
 
+# Generate a submission
+
 # Make predictions to be submitted
 test_preds = rf_model_on_all_data.predict(test_X)
 
