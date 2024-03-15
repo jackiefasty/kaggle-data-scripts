@@ -39,6 +39,3 @@ reviews.points - review_points_mean
 
 # Easier like this
 reviews.country + " - " + reviews.region_1
-
-
-
