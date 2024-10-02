@@ -22,7 +22,7 @@ deeper = keras.Sequential([
 ])
 
 # Apply early stopping
-early_stopping = keras.EarlyStopping(
+early_stopping = callbacks.EarlyStopping(
     min_delta = 0.001, # This is the minimum amout of chnage to count it as an improvement
     patience = 20,
     restore_best_weights = True,
