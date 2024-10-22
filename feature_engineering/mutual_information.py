@@ -3,6 +3,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import cross_val_score
 from sklearn.feature_selection import mutual_info_regression
 import matplotlib as plt
+import seaborn as sns
+import numpy as np
 
 X = df.copy()
 y = X.pop("price")
@@ -34,3 +36,7 @@ def plot_mi_scores(scores):
 
 plt.figure(dpi=100, figsize=(8, 5))
 plot_mi_scores(mi_scores)
+
+sns.relplot(x="curb_weight", y="price", data=df)
+
+sns.lmplot(x="horsepower", y="price", hue="fuel_type", data=df); 
