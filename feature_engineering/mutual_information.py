@@ -39,4 +39,4 @@ plot_mi_scores(mi_scores)
 
 sns.relplot(x="curb_weight", y="price", data=df)
 
-sns.lmplot(x="horsepower", y="price", hue="fuel_type", data=df); 
+sns.lmplot(x="horsepower", y="price", hue="fuel_type", data=df);
